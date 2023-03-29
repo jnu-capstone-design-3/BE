@@ -1,4 +1,4 @@
-from django.db import models    
+from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 
@@ -9,7 +9,7 @@ class User(AbstractUser):
 class Navigation(models.Model):
 
     user = models.ForeignKey(User,
-                             on_delete=models.CASCADE, 
+                             on_delete=models.CASCADE,
                              related_name="user_navi_history")
     history = models.JSONField(null=True, blank=True)
 
@@ -19,7 +19,7 @@ class Room(models.Model):
     user = models.ForeignKey(User,
                              on_delete=models.CASCADE,
                              related_name='user_rooms')
-    
+
     name = models.CharField(max_length=255, null=True, blank=True)
     user_list = models.TextField(null=True, blank=True)
 

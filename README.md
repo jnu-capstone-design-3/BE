@@ -1,7 +1,4 @@
-## Development env
-- Python 3.9 
-- Django 4.1.7
-- Django REST 3.14 
+# 03.30
 
-### Postman workpace
-- https://restless-meadow-933654.postman.co/workspace/f6bcf3bf-10f6-4661-b6a2-5f7b3f2eba9a
+account 외부DB 죽이고 django-allauth로 구현했음.
+내일은 contrib.auth랑 allauth 연결시켜야지
