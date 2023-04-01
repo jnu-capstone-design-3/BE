@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     # 3rd party libraries
     'rest_framework',
     # local
-    #'account'
+    'account.apps.AccountConfig',
 
     'allauth', # new
     'allauth.account', # new
@@ -92,7 +92,7 @@ DATABASES = {
     }
 }
 
-# AUTH_USER_MODEL = 'account.User' # 일단 죽이기....
+AUTH_USER_MODEL = 'local_user.User'
 
 
 # Password validation
