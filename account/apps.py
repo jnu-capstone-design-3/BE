@@ -8,4 +8,4 @@ from django.apps import AppConfig
 
 class AccountConfig(AppConfig):
     name = 'account'
-    label = 'local_user'  # Change this
+    label = 'local_user'  # new
