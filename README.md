@@ -7,10 +7,7 @@ account 외부DB 죽이고 django-allauth로 구현했음.
 
 kakao 로그인 연결
 
-## Requirements
+## 04.14
 
-```shell
-$ pip install django-allauth
-```
-
-main branch에서 migrate한 내용 다 삭제 후 다시 makemigrations
+REST-API 연결
+google login 죽이기
