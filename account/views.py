@@ -6,20 +6,59 @@ from django.http import JsonResponse
 from json.decoder import JSONDecodeError
 from rest_framework import status
 from rest_framework.response import Response
+# '''
+# For register/ JWT
+# '''
+# from rest_framework.views import APIView
+# from .serializers import *
+# from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+
+'''
+For social_login
+'''
 from dj_rest_auth.registration.views import SocialLoginView
-# from allauth.socialaccount.providers.google import views as google_view
 from allauth.socialaccount.providers.kakao import views as kakao_view
-# from allauth.socialaccount.providers.github import views as github_view
 from allauth.socialaccount.providers.oauth2.client import OAuth2Client
 from allauth.socialaccount.models import SocialAccount
 from .models import User
 
+# '''
+# For register/ JWT
+# '''
+# class RegisterAPIview(APIView):
+#     def post(self, request):
+#         serializer = UserSerializer(data=request.data)
+#         if serializer.is_valid():
+#             user = serializer.save()
 
+#             # jwt 토큰 접근
+#             token = TokenObtainPairSerializer.get_token(user)
+#             refresh_token = str(token)
+#             access_token = str(token.access_token)
+#             res = Response(
+#                 {
+#                     "user": serializer.data,
+#                     "message": "register success"
+#                     "token": {
+#                         "access": access_token,
+#                         "refresh": refresh_token,
+#                     },
+#                 },
+#                 status=status.HTTP_200_OK,
+#             )
 
+#             # jwt 토큰 => 쿠키에 저장
+#             res.set_cookie("access", access_token, httponly=True)
+#             res.set_cookie("refresh", refresh_token, httponly=True)
+
+#             return res
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+'''
+For social_login_kakao
+'''
 BASE_URL = 'http://localhost:8000/'
-# GOOGLE_CALLBACK_URI = BASE_URL + 'accounts/google/callback/'
 KAKAO_CALLBACK_URI = BASE_URL + 'accounts/kakao/callback/'
-# GITHUB_CALLBACK_URI = BASE_URL + 'accounts/github/callback/'
 
 # state = getattr(settings, 'STATE')
 state = os.environ.get("STATE")

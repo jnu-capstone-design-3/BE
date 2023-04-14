@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # 3rd party libraries
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
     'dj_rest_auth',
     'dj_rest_auth.registration',
@@ -90,20 +91,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-# Rest
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
-        'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
-    ),
-}
-
-REST_AUTH_SERIALIZERS = {
-    'USER_DETAILS_SERIALIZER': 'account.serializers.UserSerializer',
-}
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -135,13 +122,31 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 #--------new----------#
+SITE_ID = 1
+
+REST_FRAMEWORK = {
+    # 'DEFAULT_PERMISSION_CLASSES': (
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        # 'rest_framework.authentication.SessionAuthentication',
+        # 'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+# REST_AUTH_SERIALIZERS = {
+#     'USER_DETAILS_SERIALIZER': 'account.serializers.UserSerializer',
+# }
+
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
-SITE_ID = 1
+
 
 # account 설정
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
