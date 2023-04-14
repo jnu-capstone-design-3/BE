@@ -22,7 +22,7 @@ from .views import Home
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('dj_rest_auth.urls')),
-    path('accounts/', include('dj_rest_auth.registration.urls')),
+    path('accounts/registration/', include('dj_rest_auth.registration.urls')),
     path('accounts/', include('allauth.urls')),
     # re_path(r'^accounts/registration/confirm-email/(?P<key>.+)/$', confirm_email, name='confirm_email'),
     path('accounts/', include('account.urls')),

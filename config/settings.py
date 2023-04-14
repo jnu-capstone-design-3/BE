@@ -102,7 +102,7 @@ REST_FRAMEWORK = {
 }
 
 REST_AUTH_SERIALIZERS = {
-    'USER_DETAILS_SERIALIZER': 'users.serializers.UserSerializer',
+    'USER_DETAILS_SERIALIZER': 'account.serializers.UserSerializer',
 }
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases

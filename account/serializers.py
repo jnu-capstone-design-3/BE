@@ -1,13 +1,13 @@
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
-from users.models import User
+from .models import User
 
 
 class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = CustomUser
-        fields = ['id', 'email', 'first_name', 'last_name', 'spouse_name', 'date_of_birth']
+        model = User
+        fields = "__all__"
 
 class CustomTokenRefreshSerializer(serializers.Serializer):
     refresh_token = serializers.CharField()
