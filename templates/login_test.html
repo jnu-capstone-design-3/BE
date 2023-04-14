@@ -4,9 +4,5 @@
 {% if user.is_authenticated %}
 <p>Hi~~~{{ user.username }}!!</p>
 {% else %}
-<<<<<<< HEAD
-=======
-<a href="{% provider_login_url 'google' %}">Sign Up</a>
->>>>>>> d93ccb8dbd480b05687d9748089d613407db52ab
 <a href="{% provider_login_url 'kakao' %}">Sign Up</a>
 {% endif %}

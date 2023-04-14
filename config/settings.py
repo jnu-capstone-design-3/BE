@@ -44,7 +44,6 @@ INSTALLED_APPS = [
 
     # 3rd party libraries
     'rest_framework',
-<<<<<<< HEAD
     'rest_framework.authtoken',
     'rest_framework_simplejwt.token_blacklist',
     'dj_rest_auth',
@@ -58,15 +57,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     # 'allauth.socialaccount.providers.google',
-=======
-    # local
-    'account.apps.AccountConfig',
-
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
->>>>>>> d93ccb8dbd480b05687d9748089d613407db52ab
     'allauth.socialaccount.providers.kakao', # new
 ]
 
@@ -124,10 +114,6 @@ DATABASES = {
     }
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> d93ccb8dbd480b05687d9748089d613407db52ab
 AUTH_USER_MODEL = 'local_user.User'
 
 
@@ -157,7 +143,6 @@ AUTHENTICATION_BACKENDS = (
 
 SITE_ID = 1
 
-<<<<<<< HEAD
 # account 설정
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_EMAIL_REQUIRED = True
@@ -181,11 +166,6 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROATATION': True,
 }
-=======
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'none'
-LOGIN_REDIRECT_URL = 'home'
->>>>>>> d93ccb8dbd480b05687d9748089d613407db52ab
 #----------------#
 
 # Internationalization
