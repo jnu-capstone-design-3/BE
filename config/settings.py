@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-$zur5pk_n)-5y$sve8k)!2^8z*7w1)7pz)m1tqht0xaa3u6409
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -203,12 +203,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
                 --------------------------------------------
 '''
 
-ASGI_APPLICATION = 'config.asgi.application'
+ASGI_APPLICATION = "config.asgi.application"
+
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
             "hosts": [("127.0.0.1", 6379)],
-        }
-    }
-}    
+        },
+    },
+}

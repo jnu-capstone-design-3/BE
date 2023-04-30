@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import Index
 
+from .views import MakeTokenView
 urlpatterns = [
-    path('test/', Index.as_view(), name='test'),
-]
+    path("generate/", MakeTokenView.as_view(), name="index"),
+    # path("<str:room_name>", views.room, name="room"),
+]   
