@@ -4,5 +4,5 @@ from . import consumers
 
 
 websocket_urlpatterns = [
-    re_path(r"navi/(?P<room_name>\w+)/$", consumers.Consumer.as_asgi()),
+    re_path(r"navi/(?P<room_id>\w+)/$", consumers.Consumer.as_asgi()),
 ]
