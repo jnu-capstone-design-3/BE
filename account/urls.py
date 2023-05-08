@@ -7,7 +7,7 @@ urlpatterns = [
     path('registration/', include('dj_rest_auth.registration.urls')),
     # re_path(r'^accounts/registration/confirm-email/(?P<key>.+)/$', confirm_email, name='confirm_email'),
     # path('social/', include('allauth.urls')),
-    path('social/kakao/login/', views.kakao_login, name='kakao_login'),
-    path('social/kakao/callback/', views.kakao_callback, name='kakao_callback'),
-    path('social/login/finish/', views.KakaoLogin.as_view(), name='kakao_login_todjango'),
+    path('kakao/login/', views.kakao_login, name='kakao_login'),
+    path('kakao/callback/', views.kakao_callback, name='kakao_callback'),
+    path('kakao/login/finish/', views.KakaoLogin.as_view(), name='kakao_login_todjango'),
 ]

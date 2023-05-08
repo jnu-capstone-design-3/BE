@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 from django.http import JsonResponse
 from json.decoder import JSONDecodeError
 from rest_framework import status
-from rest_framework.response import Response
+# from rest_framework.response import Response
 # '''
 # For register/ JWT
 # '''
@@ -79,8 +79,7 @@ def kakao_callback(request):
     """
     Access Token Request
     """
-    token_req = requests.get(
-        f"https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id={rest_api_key}&redirect_uri={redirect_uri}&code={code}")
+    token_req = requests.get(f"https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id={rest_api_key}&redirect_uri={redirect_uri}&code={code}")
     token_req_json = token_req.json()
     error = token_req_json.get("error")
     if error is not None:
@@ -89,8 +88,7 @@ def kakao_callback(request):
     """
     Email Request
     """
-    profile_request = requests.get(
-        "https://kapi.kakao.com/v2/user/me", headers={"Authorization": f"Bearer {access_token}"})
+    profile_request = requests.get("https://kapi.kakao.com/v2/user/me", headers={"Authorization": f"Bearer {access_token}"})
     profile_json = profile_request.json()
     error = profile_json.get("error")
     if error is not None:
@@ -108,9 +106,6 @@ def kakao_callback(request):
         social_user = SocialAccount.objects.get(user=user)
         if social_user is None:
             return JsonResponse({'err_msg': 'email exists but not social user'}, status=status.HTTP_400_BAD_REQUEST)
-        if social_user.provider != 'kakao':
-            return JsonResponse({'err_msg': 'no matching social type'}, status=status.HTTP_400_BAD_REQUEST)
-        # 기존에 Google로 가입된 유저
         data = {'access_token': access_token, 'code': code}
         accept = requests.post(
             f"{BASE_URL}accounts/kakao/login/finish/", data=data)
