@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>loginpage</title>
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+  <div class="login-container">
+    <form>
+      <h1>Login</h1>
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password">
+      <button type="submit" onclick="localuser_login()" >로그인</button>
+      <button type="submit">회원가입</button>
+      {% load socialaccount %}
+      <button type="submit" id="kakao_login">
+        <a href="{% provider_login_url 'kakao' %}">카카오 로그인</a></button>
+    </form>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    function localuser_login(){
+      $.ajax({
+        type: 'POST',
+        url: '/accounts/login/',
+        data: {
+          email: $('#email').val(),
+          password: $('#password').val()
+        },
+
+        success: function(data){
+          alert("Logged In Successfully.")
+          //일단 홈디렉터리로 이동, 다른 페이지 구현 되면 여기루..
+          window.location.href = '/'
+        },
+        error: function(){
+          alert("Login Error!")
+        }
+      })
+    }
+  </script>
+</body>
+</html>
+
+
+

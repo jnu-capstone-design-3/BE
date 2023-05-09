@@ -17,11 +17,11 @@ from django.contrib import admin
 from django.urls import path, include #, re_path
 # from allauth.account.views import confirm_email
 
-# from .views import Home
+from .views import Home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # re_path(r'^accounts/registration/confirm-email/(?P<key>.+)/$', confirm_email, name='confirm_email'),
     path('accounts/', include('account.urls')),
-    # path('', Home.as_view(), name='home'),
+    path('', Home.as_view(), name='home'),
 ]
